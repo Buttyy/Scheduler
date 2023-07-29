@@ -89,7 +89,7 @@ void taskArrive(Task *task, Queue **Aqueue, Queue **Pqueue, Queue **Rqueue, Queu
     } else {
         Queue *new = generateQueue(&task[arrive]);
         Queue *tmp = *Pqueue;
-        while (tmp->next != NULL && tmp->next->task->cost < task[arrive].cost) {
+        while (tmp->next != NULL && tmp->next->task->cost <= task[arrive].cost) {
             tmp = tmp->next;
         }
         new->next = tmp->next;
